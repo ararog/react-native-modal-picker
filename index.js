@@ -12,8 +12,7 @@ import {
     Text,
     ScrollView,
     TouchableOpacity,
-    Platform,
-    PropTypes
+    Platform
 } from 'react-native';
 
 import styles from './style';
