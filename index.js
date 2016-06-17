@@ -1,6 +1,10 @@
 'use strict';
 
 import React, {
+  PropTypes
+} from 'react';
+
+import {
     View,
     StyleSheet,
     Dimensions,
@@ -18,7 +22,6 @@ import rebound from 'rebound';
 
 let tag;
 let componentIndex = 0;
-const Portal = require('react-native/Libraries/Portal/Portal.js');
 
 const propTypes = {
     data: PropTypes.array,
@@ -85,23 +88,15 @@ export default class ModalPicker extends BaseComponent {
     }
 
     close() {
-        if (Platform.OS == 'android') {
-            Portal.closeModal(tag);
-        } else {
-            this.setState({
-                modalVisible: false
-            });
-        }
+        this.setState({
+            modalVisible: false
+        });
     }
 
     open() {
-        if (Platform.OS == 'android') {
-            Portal.showModal(tag, this.renderOptionList());
-        } else {
-            this.setState({
-                modalVisible: true
-            });
-        }
+        this.setState({
+            modalVisible: true
+        });
     }
 
     renderSection(section) {
@@ -174,7 +169,7 @@ export default class ModalPicker extends BaseComponent {
 
         } else {
             dp = (
-                <Modal transparent={true} ref="modal" visible={this.state.modalVisible} animated={this.state.animated}>
+                <Modal transparent={true} ref="modal" visible={this.state.modalVisible} animationType={this.state.animated ? 'slide' : 'none'}>
                     {this.renderOptionList()}
                 </Modal>);
         }

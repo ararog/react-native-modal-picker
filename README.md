@@ -3,14 +3,16 @@
 # react-native-modal-picker
 A cross-platform (iOS / Android), selector/picker component for React Native that is highly customizable and supports sections.
 
+ATTENTION! This is a temporary fork to fix some issues while using with React Native 0.27.x!
+
 ## Demo
 
-<img src="https://raw.githubusercontent.com/d-a-n/react-native-modal-picker/master/docs/demo.gif" />
+<img src="https://raw.githubusercontent.com/ararog/react-native-modal-picker/master/docs/demo.gif" />
 
 ## Install
 
 ```sh
-npm i react-native-modal-picker --save
+npm i npm install github:ararog/react-native-modal-picker --save
 ```
 
 ## Usage
@@ -67,13 +69,13 @@ class SampleApp extends Component {
                     data={data}
                     initValue="Select something yummy!"
                     onChange={(option)=>{ this.setState({textInputValue:option.label})}}>
-                    
+
                     <TextInput
                         style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
                         editable={false}
                         placeholder="Select something yummy!"
                         value={this.state.textInputValue} />
-                        
+
                 </ModalPicker>
             </View>
         );
